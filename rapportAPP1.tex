@@ -154,6 +154,60 @@ La même stratégie peut être utilisé pour obtenir l'accélération :
 
 \section{Statique et dynamique}
 \subsection{Statique}
+La figure ci-dessous démontre les forces en action qui influencent le calcul de la force $F_b$ lorsque le robot est immobile.
+\begin{center}
+	\centering
+	\includegraphics[width=0.3\textwidth]{statique_fb}
+	\captionof{figure}{Diagramme des forces en statique pour le calcul de $F_b$}
+	\label{statique_fb}
+\end{center}
+La somme des forces d'un système statique est égale à 0, tel que décrit par:
+\begin{equation}
+	\sum \overrightarrow F = \overrightarrow 0
+\end{equation}
+En suivant la formule et faisant la sommation des vecteurs de force, on obtient:
+	\[	\sum \overrightarrow F = \overrightarrow 0 = \overrightarrow{F_b} + \overrightarrow{F_{BA}} + \overrightarrow{F_A}	\]
+	\[	\begin{bmatrix}
+	0\\ 
+	0
+	\end{bmatrix} = \begin{bmatrix}
+	F_{bx}\\ 
+	F_{by}
+	\end{bmatrix} + \begin{bmatrix}
+	0\\ 
+	-F_{BA}
+	\end{bmatrix} + \begin{bmatrix}
+	0\\ 
+	-F_A
+	\end{bmatrix}	\]
+On observe rapidement que le valeur de $F_{bx}$ est égale à 0 et que la valeur de $F_{by}$ correspond:
+	\[	F_{by} = F_{BA} + F_A 	\]
+En utilisant l'equation:
+\begin{equation}
+	F = m*g
+\end{equation}
+On obtient:
+	\[	F_{by} = g*(m_{BA} + m_A)	\]
+Et donc la valeur de Fb en statique, avec g étant l'accélération gravitationnelle:
+	\[	F_b = \begin{bmatrix}
+	0\\ 
+	g*(m_{BA} + m_A)
+	\end{bmatrix}	\]
+La figure ci-dessous démontre les forces en action qui influencent le calcul du moment $C_b$:
+\begin{center}
+	\centering
+	\includegraphics[width=0.3\textwidth]{statique_cb}
+	\captionof{figure}{Diagramme des forces en statique pour le calcul de $C_b$}
+	\label{statique_cb}
+\end{center}
+La somme des moments à un point (dans notre cas B) d'un système statique est égale à 0, tel que décrit par:
+\begin{equation}
+	\sum M_B =  0
+\end{equation}
+Les forces $\overrightarrow F_{BA}$ et $\overrightarrow F_A$ ont une influence tangentielle et normale à la tige BA. Pour le calcul des moments, uniquement la partie tangentielle nous intéresse (la normale n'a pas d'impact). La tangentielle se trouve à être la projection des forces ($cos\varphi$). On obtient alors:
+	\[	\sum M_B =  0 = C_b - cos\varphi*F_{BA}*l_2/2 - cos\varphi*F_A*l_2	\]
+En isolant $C_b$ et simplifiant l'équation avec les valeurs pour $F_{BA}$ et $F_A$ trouvées ci-haut, on obtient sa valeur pour le cas statique (avec g étant l'accélération gravitationnelle):
+	\[	C_b = l_2*g*cos\varphi*(m_{BA}/2+m_A)	\]
 \begin{center}
 	\centering
 	\includegraphics[width=0.7\textwidth]{couple_stat}
