@@ -218,23 +218,39 @@ En isolant $C_b$ et simplifiant l'équation avec les valeurs pour $F_{BA}$ et $F
 	\label{couple_statique}
 \end{center}
 \subsection{Dynamique}
-La figure ci-dessous démontre les forces en action qui influencent le calcul de la force $F_b$ lorsque le robot est immobile à l'exception de la tige BA qui a une accékération angulaire constante de $\alpha$.
+La figure ci-dessous démontre les forces en action qui influencent le calcul de la force $F_b$ lorsque le robot est immobile à l'exception de la tige BA qui a une accélération angulaire constante de $\alpha$.
 \begin{center}
 	\centering
 	\includegraphics[width=0.3\textwidth]{dynamique_fb}
 	\captionof{figure}{Diagramme des forces en dynamique pour le calcul de $F_b$}
-	\label{statique_fb}
+	\label{dynamique_fb}
 \end{center}
 La somme des forces d'un système dynamique est égale à les accélérations fois les masses accélérées, tel que décrit par:
 \begin{equation}
-	\sum \overrightarrow F = m*\overrightarrow \gamma_G
+	\sum \overrightarrow F_{ext} = m*\overrightarrow {\gamma_G}
 \end{equation}
-L'accélération angulaire $\alpha$ cause des accélérations normale et tangentielle $\overrightarrow 
-En suivant la formule et faisant la sommation des vecteurs de force, on obtient:
-	\[	\sum \overrightarrow F = \overrightarrow 0 = \overrightarrow{F_b} + \overrightarrow{F_{BA}} + \overrightarrow{F_A}	\]
-	\[	\begin{bmatrix}
-	0\\ 
-	0
+L'accélération angulaire $\alpha$ cause des accélérations normale et tangentielle $\overrightarrow a_n$ et $\overrightarrow a_t$. Ces accélérations correspondant à:
+\begin{equation}
+	 a_n = l_2 * \dot{\varphi}^{2}
+\end{equation}
+\begin{equation}
+	 a_t = l_2 * \ddot{\varphi}
+\end{equation}
+Cependant, afin de tout avoir en termes de l'axe des x et des y, on veut décomposer ces accélérations selon leurs projections sur les deux axes, tout en prenant compte que c'est tournant:
+	\[	\overrightarrow {\gamma_G} = \begin{bmatrix}
+	-sin\varphi*a_t-cos\varphi*a_n\\
+	cos\varphi*a_t-sin\varphi*a_n
+	\end{bmatrix}	\]
+Et en séparant pour la barre BA et pour la masse A, en utilisant le équations pour les accélérations et en appliquant les masses:
+	\[	m * \overrightarrow {\gamma_G} = (l_2*m_A + l_2/2*m_{BA}) * \begin{bmatrix}
+	-\ddot{\varphi}*sin\varphi-\dot{\varphi}^{2}*cos\varphi\\
+	\ddot{\varphi}*cos\varphi-\dot{\varphi}^{2}*sin\varphi
+	\end{bmatrix}	\]
+En suivant l'équation et en faisant la sommation des vecteurs de force, on obtient:
+	\[	\sum \overrightarrow F_{ext} = m * \overrightarrow {\gamma_G} =  \overrightarrow{F_b} + \overrightarrow{F_{BA}} + \overrightarrow{F_A}	\]
+	\[	(l_2*m_A + l_2/2*m_{BA}) * \begin{bmatrix}
+	-\ddot{\varphi}*sin\varphi-\dot{\varphi}^{2}*cos\varphi\\
+	\ddot{\varphi}*cos\varphi-\dot{\varphi}^{2}*sin\varphi
 	\end{bmatrix} = \begin{bmatrix}
 	F_{bx}\\ 
 	F_{by}
@@ -245,19 +261,37 @@ En suivant la formule et faisant la sommation des vecteurs de force, on obtient:
 	0\\ 
 	-F_A
 	\end{bmatrix}	\]
-On observe rapidement que le valeur de $F_{bx}$ est égale à 0 et que la valeur de $F_{by}$ correspond:
-	\[	F_{by} = F_{BA} + F_A 	\]
 En utilisant l'equation:
 \begin{equation}
 	F = m*g
 \end{equation}
-On obtient:
-	\[	F_{by} = g*(m_{BA} + m_A)	\]
-Et donc la valeur de Fb en statique, avec g étant l'accélération gravitationnelle:
-	\[	F_b = \begin{bmatrix}
-	0\\ 
-	g*(m_{BA} + m_A)
+On obtient pour le cas dynamique, avec g étant l'accélération gravitationelle:
+	\[	\overrightarrow {F_b} =  \begin{bmatrix}
+	F_{bx}\\ 
+	F_{by}
+	\end{bmatrix} = (l_2*m_A + l_2/2*m_{BA}) * \begin{bmatrix}
+	-\ddot{\varphi}*sin\varphi-\dot{\varphi}^{2}*cos\varphi\\
+	\ddot{\varphi}*cos\varphi-\dot{\varphi}^{2}*sin\varphi + g*(m_{BA}+m_A)
 	\end{bmatrix}	\]
+La figure ci-dessous démontre les forces en action qui influencent le calcul du couple $C_b$ lorsque le robot est immobile à l'exception de la tige BA qui a une accélération angulaire constante de $\alpha$.
+\begin{center}
+	\centering
+	\includegraphics[width=0.3\textwidth]{dynamique_cb}
+	\captionof{figure}{Diagramme des forces en dynamique pour le calcul de $C_b$}
+	\label{dynamique_cb}
+\end{center}
+La somme des moments à un point (dans notre cas B) d'un système dynamique est égale au moment d'inertie multiplié par l'accélération angulaire, tel que décrit par:
+\begin{equation}
+	\sum M_B =  I_B*\alpha
+\end{equation}
+Le moment d'intertie au point B est composé en trois parties, le moment d'inertie du moteur $M_b$, le moment d'inertie de la tige BA, et le moment d'inertie de l'objet $O_A$, tous calculées avec le centre de rotation B:
+	\[	I_B = I_{M_B} + I_BA + I_A 	\]
+ Le moment d'inertie des sphères $M_B$ et $O_A$ est négligible par rapport à la tige et la masse, alors le moment d'inertie au point B est:
+	\[	I_B = 0 + m_{BA}/3*{l_2}^{2} + 0 + m_A*{l_2}^{2} =  (m_{BA}/3 + m_A)*{l_2}^{2}	\]
+En utilisant cette information et en procédant à la sommation des moments:
+	\[	\sum M_B =  I_B*\alpha =  (m_{BA}/3 + m_A)*{l_2}^{2}*\alpha = C_b - cos\varphi*F_{BA}*l_2/2 - cos\varphi*F_A*l_2   \]
+On obtient alors, avec g étant l'accélération gravitationnelle et $\ddot{\varphi} = \alpha$:
+	\[	C_b = (m_{BA}/3 + m_A)*{l_2}^{2}*\ddot{\varphi} +  l_2*g*cos\varphi*(m_{BA}/2+m_A)	\]
 \begin{center}
 	\centering
 	\includegraphics[width=0.7\textwidth]{couple_dyn}
