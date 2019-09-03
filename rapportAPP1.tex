@@ -218,6 +218,45 @@ En isolant $C_b$ et simplifiant l'équation avec les valeurs pour $F_{BA}$ et $F
 	\label{couple_statique}
 \end{center}
 \subsection{Dynamique}
+La figure ci-dessous démontre les forces en action qui influencent le calcul de la force $F_b$ lorsque le robot est immobile à l'exception de la tige BA qui a une accékération angulaire constante de $\alpha$.
+\begin{center}
+	\centering
+	\includegraphics[width=0.3\textwidth]{dynamique_fb}
+	\captionof{figure}{Diagramme des forces en dynamique pour le calcul de $F_b$}
+	\label{statique_fb}
+\end{center}
+La somme des forces d'un système dynamique est égale à les accélérations fois les masses accélérées, tel que décrit par:
+\begin{equation}
+	\sum \overrightarrow F = m*\overrightarrow \gamma_G
+\end{equation}
+En suivant la formule et faisant la sommation des vecteurs de force, on obtient:
+	\[	\sum \overrightarrow F = \overrightarrow 0 = \overrightarrow{F_b} + \overrightarrow{F_{BA}} + \overrightarrow{F_A}	\]
+	\[	\begin{bmatrix}
+	0\\ 
+	0
+	\end{bmatrix} = \begin{bmatrix}
+	F_{bx}\\ 
+	F_{by}
+	\end{bmatrix} + \begin{bmatrix}
+	0\\ 
+	-F_{BA}
+	\end{bmatrix} + \begin{bmatrix}
+	0\\ 
+	-F_A
+	\end{bmatrix}	\]
+On observe rapidement que le valeur de $F_{bx}$ est égale à 0 et que la valeur de $F_{by}$ correspond:
+	\[	F_{by} = F_{BA} + F_A 	\]
+En utilisant l'equation:
+\begin{equation}
+	F = m*g
+\end{equation}
+On obtient:
+	\[	F_{by} = g*(m_{BA} + m_A)	\]
+Et donc la valeur de Fb en statique, avec g étant l'accélération gravitationnelle:
+	\[	F_b = \begin{bmatrix}
+	0\\ 
+	g*(m_{BA} + m_A)
+	\end{bmatrix}	\]
 \begin{center}
 	\centering
 	\includegraphics[width=0.7\textwidth]{couple_dyn}
