@@ -71,26 +71,30 @@
 \section{Cinématique}
 \subsection{Mouvement de A dans le cas général}
 Le positionnement de $\overrightarrow{OA}$ peut être exprimé par l'addition:
-\begin{align}
-	\overrightarrow{OA} = \overrightarrow{OB} + \overrightarrow{BA}	\\
-	\overrightarrow{OA_x} = l_1 cos(\theta) + l_2 cos(\phi) 		\\
-	\overrightarrow{OA_y} = l_1 sin(\theta) + l_2 sin(\phi)
-\end{align}
+\begin{equation}
+	\overrightarrow{OA} = \overrightarrow{OB} + \overrightarrow{BA}
+\end{equation}
+	\[\overrightarrow{OA_x} = l_1 cos(\theta) + l_2 cos(\phi) 		\]
+	\[\overrightarrow{OA_y} = l_1 sin(\theta) + l_2 sin(\phi)			\]
+
 
 la vitesse étant la dérivée de la position :
-\begin{align}
-\overrightarrow{V_A} = \frac{d\overrightarrow{OA}}{dt}	\\
-\overrightarrow{V_Ax} = \frac{d\overrightarrow{OA_x}}{dt} = \frac{l_1 cos(\theta) + l_2 cos(\phi)}{dt}	\\
-\overrightarrow{V_Ax} = -l_1 sin(\theta) \dot{\theta} -l_2 sin(\phi) \dot{\phi}\\
-\overrightarrow{V_Ay} = \frac{d\overrightarrow{OA_y}}{dt} = \frac{l_1 sin(\theta) + l_2 sin(\phi)}{dt}	\\
-\overrightarrow{V_Ax} = l_1 cos(\theta) \dot{\theta} -l_2 cos(\phi) \dot{\phi}\\
-\end{align}
+\begin{equation}
+\overrightarrow{V_A} = \frac{d\overrightarrow{OA}}{dt}
+\end{equation}
+
+\[\overrightarrow{V_Ax} = \frac{d(\overrightarrow{OA_x}}{dt} = \frac{d(l_1 cos(\theta) + l_2 cos(\phi))}{dt}\]
+\[\overrightarrow{V_Ax} = -l_1 sin(\theta) \dot{\theta} -l_2 sin(\phi) \dot{\phi}\]
+\[\overrightarrow{V_Ay} = \frac{d(\overrightarrow{OA_y}}{dt} = \frac{d(l_1 sin(\theta) + l_2 sin(\phi))}{dt}\]
+\[\overrightarrow{V_Ax} = l_1 cos(\theta) \dot{\theta} -l_2 cos(\phi) \dot{\phi}\]
+
 
 La même stratégie peut être utilisé pour obtenir l'accélération :
-\begin{align}
+\begin{equation}
 \overrightarrow{a_A} = \frac{d\overrightarrow{V_A}}{dt}	\\
-\overrightarrow{a_Ax} = \frac{d\overrightarrow{OA_x}}{dt} = \frac{l_1 cos(\theta) + l_2 cos(\phi)}{dt}	\\
-\end{align}
+\end{equation}
+\[\overrightarrow{a_Ax} = \frac{d\overrightarrow{OA_x}}{dt} = \frac{ d(l_1 cos(\theta) + l_2 cos(\phi))}{dt}\]
+\[\overrightarrow{a_Ay} = \frac{d\overrightarrow{OA_y}}{dt} = \frac{d(l_1 cos(\theta) + l_2 cos(\phi))}{dt}		\]
 
 \subsection{Mouvement horizontal de A}
 
