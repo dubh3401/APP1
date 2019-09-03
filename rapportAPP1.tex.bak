@@ -74,8 +74,8 @@ Le positionnement de $\overrightarrow{OA}$ peut être exprimé par l'addition:
 \begin{equation}
 	\overrightarrow{OA} = \overrightarrow{OB} + \overrightarrow{BA}
 \end{equation}
-	\[\overrightarrow{OA_x} = l_1 cos(\theta) + l_2 cos(\phi) 		\]
-	\[\overrightarrow{OA_y} = l_1 sin(\theta) + l_2 sin(\phi)			\]
+	\[	\overrightarrow{OA_x} = l_1 cos(\theta) + l_2 cos(\varphi) 			\]
+	\[	\overrightarrow{OA_y} = l_1 sin(\theta) + l_2 sin(\varphi)			\]
 
 
 la vitesse étant la dérivée de la position :
@@ -83,20 +83,49 @@ la vitesse étant la dérivée de la position :
 \overrightarrow{V_A} = \frac{d\overrightarrow{OA}}{dt}
 \end{equation}
 
-\[\overrightarrow{V_Ax} = \frac{d(\overrightarrow{OA_x}}{dt} = \frac{d(l_1 cos(\theta) + l_2 cos(\phi))}{dt}\]
-\[\overrightarrow{V_Ax} = -l_1 sin(\theta) \dot{\theta} -l_2 sin(\phi) \dot{\phi}\]
-\[\overrightarrow{V_Ay} = \frac{d(\overrightarrow{OA_y}}{dt} = \frac{d(l_1 sin(\theta) + l_2 sin(\phi))}{dt}\]
-\[\overrightarrow{V_Ax} = l_1 cos(\theta) \dot{\theta} -l_2 cos(\phi) \dot{\phi}\]
+\[ \overrightarrow{V_Ax} = \frac{d(\overrightarrow{OA_x}}{dt} = \frac{d(l_1 cos(\theta) + l_2 cos(\varphi))}{dt}	\]
+\[ \overrightarrow{V_Ax} = -l_1 sin(\theta) \dot{\theta} -l_2 sin(\varphi) \dot{\varphi}								\]
+\[ \overrightarrow{V_Ay} = \frac{d(\overrightarrow{OA_y}}{dt} = \frac{d(l_1 sin(\theta) + l_2 sin(\varphi))}{dt}	\]
+\[ \overrightarrow{V_Ax} = l_1 cos(\theta) \dot{\theta} -l_2 cos(\varphi) \dot{\varphi}								\]
 
 
 La même stratégie peut être utilisé pour obtenir l'accélération :
 \begin{equation}
 \overrightarrow{a_A} = \frac{d\overrightarrow{V_A}}{dt}	\\
 \end{equation}
-\[\overrightarrow{a_Ax} = \frac{d\overrightarrow{OA_x}}{dt} = \frac{ d(l_1 cos(\theta) + l_2 cos(\phi))}{dt}\]
-\[\overrightarrow{a_Ay} = \frac{d\overrightarrow{OA_y}}{dt} = \frac{d(l_1 cos(\theta) + l_2 cos(\phi))}{dt}		\]
+\[	\overrightarrow{a_{A_x}} = \frac{d\overrightarrow{OA_x}}{dt} = \frac{ d(l_1 cos(\theta) + l_2 cos(\varphi))}{dt}		\]
+\[	\overrightarrow{a_{A_x}} = - l_1 cos(\theta)\dot{\theta}^2 - l_1 sin(\theta)\ddot{\theta} - l_2 sin(\varphi)\dot{\varphi}^2 - l_2 cos(\varphi)\ddot{\varphi}  \]
+\[	\overrightarrow{a_{A_y}} = \frac{d\overrightarrow{OA_y}}{dt} = \frac{d(l_1 cos(\theta) + l_2 cos(\varphi))}{dt}		\]
+\[	\overrightarrow{a_{A_y}} =  - l_1 sin(\theta)\dot{\theta}^2 + l_1 cos(\theta)\ddot{\theta} -l_2 cos(\varphi)\ddot{\varphi} + l_2 sin(\varphi)\dot{\varphi}^2 \]
 
 \subsection{Mouvement horizontal de A}
+Dans le cas précis du mouvement général, il est possible de déterminer une relation entre l'angle $\theta$ et $\varphi$, ce qui permettera de réduire la taille des équations. Partant du fait que la vitesse en 'y' est toujours nulle : 
+
+\begin{equation}
+\overrightarrow{V_{A_y}} = 0
+\end{equation}
+
+\[	\overrightarrow{V_{A_y}} = 0 = l_1 sin(\theta) + l_2 sin(\varphi)		\]
+\[	-l_1 sin(\theta) = l_2 sin(\varphi)	\]
+Considérant que $l_1 = l_2$
+\[	-sin(\theta) = sin(\varphi) 		\]
+cette condition n'est vrai que dans un cas:
+\begin{equation}
+\varphi = -\theta		
+\label{eq:rel}
+\end{equation}
+
+À partir de cette relation et du fait que $l_1 = l_2$, les équations du cas générale peuvent être réécritent afin d'obtenir celle de ce cas spécifique.
+Pour la position :
+\[	\overrightarrow{OA_x} = l_1 cos(theta) + l_2cos(\theta) = 2 l_1 cos(\theta)	\]
+\[	\overrightarrow{OA_y} = 0	\]
+Pour la vitesse:
+\[	\overrightarrow{V_{A_x}} = \frac{d\overrightarrow{OA_x}}{dt}= -2 l_1 sin(\theta)\dot{\theta}	\]
+\[	\overrightarrow{V_{A_y}} = 0 \]
+Pour l'accélération, à vitesse angulaire constante :
+\[	\overrightarrow{a_{A_x}} = \frac{d\overrightarrow{V_{A_x}}}{dt}= -2 l_1 cos(\theta)\dot{\theta}^2	\]
+\[	\overrightarrow{a_{A_y}} = 0\]
+
 
 \noindent\begin{minipage}{\textwidth} 
 \begin{minipage}{0.5\textwidth}
@@ -124,6 +153,27 @@ La même stratégie peut être utilisé pour obtenir l'accélération :
 \end{center}
 
 \subsection{Mouvement vertical de A}
+La relation similaire à \eqref{rel} entre $\theta$ et $\varphi$ permettera d'obtenir la position et la vitesse du déplacement dans le cas d'un mouvement vertical à distance $l_1$ de l'origine $O$.
+Partant du fait que le mouvement vertical est effectué à distance constante et égale à $l_1$ du point $O$ :
+\begin{equation}
+l_{1_y} = \overrightarrow{OA_y} = l_1 cos(\varphi) + l_2 cos(\varphi) = l_1 
+\end{equation}
+toujours en utilisant $l_1 = l_2$
+\[ 	cos(\varphi) = 1- cos(\theta)	\]
+\[ 	\varphi = \arccos(1- cos(\theta))	\]
+et la vitesse angulaire est 
+\[	\dot{\varphi} = \frac{d\varphi}{dt}\]
+\[ 	\dot{\varphi} =\frac{-sin(\theta)\dot\theta}{\sqrt{1-(1-cos(\theta))^2}}\]
+
+Finalement, en remplacant $\varphi$ dans les équations de cinétique générale :
+Pour la position :
+\[	\overrightarrow{OA_x} = l_1	\]
+\[	\overrightarrow{OA_y} = l_1 sin(\theta) + l_1 sin(\arccos(1- cos(\theta)))	\]
+Pour la vitesse:
+\[	\overrightarrow{V_{A_x}} = 0	\]
+\[	\overrightarrow{V_{A_y}} = \frac{d\overrightarrow{OA_y}}{dt} = l_1 cos(\theta)\dot{\theta} +  l_1 sin(\arccos(1- cos(\theta))) \frac{-sin(\theta)\dot\theta}{\sqrt{1-(1-cos(\theta))^2}}	\]
+
+
 
 \noindent\begin{minipage}{\textwidth} 
 \begin{minipage}{0.5\textwidth}
