@@ -68,6 +68,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
+L'objectif de ce rapport est d'étudier la mécanique d'un robot manipulateur. Premièrement, la cinématique de l'extrémité mobile est analysée dans le cas des mouvements généraux, ainsi que dans les cas particuliers de mouvements horizontaux et verticaux. Deuxièmement, une étude approfondie de la statique et la dynamique du robot est effectuée, afin d'assurer son équilibre et d'aider au choix des moteurs.
+
 \section{Cinématique}
 \subsection{Mouvement de A dans le cas général}
 Le positionnement de $\overrightarrow{OA}$ peut être exprimé par l'addition:
@@ -126,6 +128,10 @@ angles sont de pi/3
 	\label{composantes_horizontale_theta}
 \end{center}
 
+On observe que la position débute à 0,5 mètres, soit la longueur des deux bras, et termine à 0,25 mètres, soit la distance l.
+La vitesse est nulle au départ et diminue alors que l'angle augmente. La vitesse angulaire est de $25\:rad/s$, dans le sens antihoraire, ce qui est
+traduit en vitesse linéaire négative pour le point A. Cette vitesse explique la grande valeur négative de l'accélération linéaire horizontale.
+
 \subsection{Mouvement vertical de A}
 
 \noindent\begin{minipage}{\textwidth} 
@@ -144,6 +150,11 @@ angles sont de pi/3
 \captionof{figure}{Position du mouvement vertical} 
 \label{pos_vert} 
 \end{minipage}
+\\ \\
+Pour la position initiale dans le cas du mouvement vertical, on pose un angle $\varphi$ initial de $\pi/2$. 
+Pour conserver la distance horizontale de l, l'angle $\varphi$ diminue lorsque $\theta$ augmente. 
+Comme $\theta$ a une valeur de $\pi/3$ en position finale, on n'atteint jamais la situation ou $\overrightarrow{OA} = 2l$, 
+ce qui impliquerais un angle $\theta$ de $\pi/4$.
 
 \begin{center}
 	\centering
@@ -151,8 +162,12 @@ angles sont de pi/3
 	\captionof{figure}{Composantes en fonction de $\protect\theta$}
 	\label{composantes_verticale_theta}
 \end{center}
-\subsection{Analyse avec Matlab}
 
+On remarque premièrement que la position verticale augmente avec la progression de l'angle $\theta$, contrairement au mouvement horizontal.
+D'ailleurs, la vitesse est à son maximum au début de mouvement, ce qui s'explique par le fait qu'à $\theta=0$, 
+la vitesse linéaire de A est entièrement tangentielle à la rotation de B.
+
+\subsection{Analyse avec Matlab}
 
 
 \section{Statique et dynamique}
@@ -301,6 +316,8 @@ On obtient alors, avec g étant l'accélération gravitationnelle et $\ddot{\var
 \subsection{Analyse avec Matlab}
 
 \section{Conclusion}
+
+L'étude des forces et des couples en dynamique et statique saura aider à choisir les moteurs idéaux pour la réalisation du projet, et les équation de cinématique seront essentielles pour en programmer les mouvements. En bref, l'analyse développée dans ce rapport contribuera au développement du robot. Cependant, il sera essentiel d'approfondir l'étude en incluant les mouvements de rotation du bras $\overrightarrow{XO}$ afin d'obtenir une modélisation complète de sa mécanique. Cette étude sera réalisée ultérieurement.
 
 \begin{comment}
 \begin{center}
